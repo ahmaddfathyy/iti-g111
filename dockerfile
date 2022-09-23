@@ -15,6 +15,6 @@ EXPOSE 8081
 
 ADD https://github.com/ahmaddfathyy/iti-g111 /root/BMI-Calculator/
 
-CDM ["mvn"]
+CMD ["mvn"]
 
 ENTRYPOINT ["clean insall"]
