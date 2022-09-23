@@ -17,8 +17,8 @@ ADD https://github.com/ahmaddfathyy/iti-g111 /home/ahmad/BMI-Calculator/
 # Installing dependencies:
 
 # installing curl ustility
-RUN apt update && apt install
-RUN apt install -y curl
+RUN apt update && apt install \
+    apt install -y curl
 
 # installing maven
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref 
