@@ -30,6 +30,6 @@ RUN rm -f /tmp/apache-maven.tar.gz
 
 EXPOSE 8081
 
-CMD ["mvn"]
+ENTRYPOINT ["mvn"]
 
-ENTRYPOINT ["clean insall"]
+CMD ["clean install"]
