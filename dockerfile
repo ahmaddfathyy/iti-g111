@@ -10,7 +10,11 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven \
   && rm -f /tmp/apache-maven.tar.gz
+  
+EXPOSE 8081
 
 ADD https://github.com/ahmaddfathyy/iti-g111 /root/BMI-Calculator/
 
-RUN mvn clean install
+CDM ["mvn"]
+
+ENTRYPOINT ["clean insall"]
