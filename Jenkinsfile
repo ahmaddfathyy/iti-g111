@@ -1,10 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Verify branch') {
             steps {
-                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                echo "$GIT_BRANCH"
+            }
+        }
+        stage('Build & Dockerize') {
+            steps {
+                sh:(script:'docker images -a')
+                sh:(script:"""
+                cd iti-g111/
+                docker build -t jenkins-pipeline .
+                docker images -a
+                cd ..
+                """)
             }
         }
     }
