@@ -8,8 +8,6 @@ pipeline {
         }
         stage('Build & Dockerize') {
             steps {
-                script{
-                    
                     sh:"""
                     #!/bin/bash
                     docker images -a
@@ -25,4 +23,3 @@ pipeline {
             }
         }
     }
-}
