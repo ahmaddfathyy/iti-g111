@@ -8,17 +8,17 @@ pipeline {
         }
         stage('Build & Dockerize') {
             steps {
-                    sh:"""
+                    sh(script:"""
                     #!/bin/bash
                     docker images -a
-                    """
-                    sh:"""
+                    """)
+                    sh(script:"""
                     #!/bin/bash
                     cd iti-g111/
                     docker build -t jenkins-pipeline .
                     docker images -a
                     cd ..
-                    """
+                    """)
                 }
             }
         }
