@@ -10,8 +10,8 @@ pipeline {
             steps {
                     sh(script:"""
                     #!/bin/bash
-                    sudo apt-get update
-                    sudo apt-get -y install docker-ce
+                    apt-get update
+                    apt-get -y install docker-ce
                     docker images -a
                     """)
                     sh(script:"""
