@@ -20,5 +20,14 @@ pipeline {
                     """)
                 }
             }
+        
+        post{
+            success{
+                echo ':)'
+            }
+            failure{
+                echo ':('
+            }
+        }
         }
     }
