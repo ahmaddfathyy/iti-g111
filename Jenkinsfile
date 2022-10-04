@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'DockerHub') {
-                    def image = docker.build("spring-pipeline:latest")
+                    def image = docker.build("ahmaddfathyy/spring-pipeline:latest")
                     image.push()
                     }
                 }
