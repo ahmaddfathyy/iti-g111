@@ -19,15 +19,15 @@ pipeline {
                     cd ..
                     """)
                 }
+                post{
+                    success{
+                        echo ':)'
+                    }
+                    failure{
+                        echo ':('
+                    }
             }
-        
-        post{
-            success{
-                echo ':)'
             }
-            failure{
-                echo ':('
-            }
-        }
+    
         }
     }
