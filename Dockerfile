@@ -5,7 +5,6 @@ COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean install
 
 # Package stage
-
 FROM openjdk:11-jre-slim
 COPY --from=build-stage /home/app/target/*.jar /usr/local/lib/app.jar
 EXPOSE 8080
