@@ -33,7 +33,7 @@ pipeline {
             echo ':('
         }
     }
-    }
+}
         // stage('Push Container') {
         //     steps {
         //         script {
