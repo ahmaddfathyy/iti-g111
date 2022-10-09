@@ -26,12 +26,12 @@ pipeline {
                     }
                     success{
                         echo ':)'
-
+                    }
                     failure{
                         echo ':('
                     }
-            }
-            }
+            
+                }
         // stage('Push Container') {
         //     steps {
         //         script {
@@ -42,5 +42,5 @@ pipeline {
         //         }
         //     }
         // }
-        // }
+        }
     }
