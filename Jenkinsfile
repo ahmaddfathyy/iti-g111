@@ -19,19 +19,19 @@ pipeline {
                     cd ..
                     """)
             }
-            post{
-                always {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
-                success{
-                    echo ':)'
-                }
-                failure{
-                    echo ':('
-                }
-        
+        }
+        post{
+            always {
+                junit '**/target/surefire-reports/TEST-*.xml'
+                archiveArtifacts 'target/*.jar'
             }
+            success{
+                echo ':)'
+            }
+            failure{
+                echo ':('
+            }
+        }
         // stage('Push Container') {
         //     steps {
         //         script {
@@ -42,6 +42,5 @@ pipeline {
         //         }
         //     }
         // }
-        }
     }
 }
