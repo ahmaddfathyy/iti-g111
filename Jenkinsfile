@@ -18,20 +18,20 @@ pipeline {
                     docker images -a
                     cd ..
                     """)
+            }
+            post{
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
                 }
-                post{
-                    always {
-                        junit '**/target/surefire-reports/TEST-*.xml'
-                        archiveArtifacts 'target/*.jar'
-                    }
-                    success{
-                        echo ':)'
-                    }
-                    failure{
-                        echo ':('
-                    }
-            
+                success{
+                    echo ':)'
                 }
+                failure{
+                    echo ':('
+                }
+        
+            }
         // stage('Push Container') {
         //     steps {
         //         script {
