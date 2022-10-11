@@ -24,6 +24,16 @@ pipeline {
                     """)
             }
         }
+        stage('Push Container') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', 'DockerHub') {
+                    def image = docker.build("ahmaddfathyy/spring-pipeline:latest")
+                    image.push()
+                    }
+                }
+            }
+        }
     }
     post{
         always {
@@ -38,13 +48,3 @@ pipeline {
         }
     }
 }
-        // stage('Push Container') {
-        //     steps {
-        //         script {
-        //             docker.withRegistry('https://index.docker.io/v1/', 'DockerHub') {
-        //             def image = docker.build("ahmaddfathyy/spring-pipeline:latest")
-        //             image.push()
-        //             }
-        //         }
-        //     }
-        // }
