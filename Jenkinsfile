@@ -17,6 +17,7 @@ pipeline {
                     """)
                     sh(script:"""
                     #!/bin/bash
+                    mvn clean package
                     docker build -t jenkins-pipeline .
                     docker images -a
                     cd ..

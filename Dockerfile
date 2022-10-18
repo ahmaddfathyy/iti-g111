@@ -4,9 +4,6 @@ COPY src /home/app/src
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean install
 
-#caching the test reports for junit
-VOLUME **/target/surefire-reports/TEST-*.xml
-
 # Package stage
 FROM openjdk:11-jre-slim
 COPY --from=build-stage /home/app/target/*.jar /usr/local/lib/app.jar
